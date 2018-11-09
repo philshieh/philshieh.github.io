@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://philshieh.github.io">
-  <title>Archives: 2018/11 | 谢飞的博客</title>
+  <title>Spring优缺点 | 谢飞的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="From zero to one">
-<meta property="og:type" content="website">
-<meta property="og:title" content="谢飞的博客">
-<meta property="og:url" content="http://philshieh.github.io/archives/2018/11/index.html">
+  <meta name="description" content="Spring的优点： 轻量级：完整的Spring框架可以在一个大小只有1MB多的JAR文件里发布，而且它的POJO[1]实现不会强制继承任何类或实现任何接口。 扩展性：Spring Framework支持其他框架，它的集成使Spring更容易开发。">
+<meta name="keywords" content="Spring,POJO,JDBC,JTA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring优缺点">
+<meta property="og:url" content="http://philshieh.github.io/2018/11/09/Spring优缺点/index.html">
 <meta property="og:site_name" content="谢飞的博客">
-<meta property="og:description" content="From zero to one">
+<meta property="og:description" content="Spring的优点： 轻量级：完整的Spring框架可以在一个大小只有1MB多的JAR文件里发布，而且它的POJO[1]实现不会强制继承任何类或实现任何接口。 扩展性：Spring Framework支持其他框架，它的集成使Spring更容易开发。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-09T14:57:32.482Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="谢飞的博客">
-<meta name="twitter:description" content="From zero to one">
+<meta name="twitter:title" content="Spring优缺点">
+<meta name="twitter:description" content="Spring的优点： 轻量级：完整的Spring框架可以在一个大小只有1MB多的JAR文件里发布，而且它的POJO[1]实现不会强制继承任何类或实现任何接口。 扩展性：Spring Framework支持其他框架，它的集成使Spring更容易开发。">
   
     <link rel="alternative" href="/atom.xml" title="谢飞的博客" type="application/atom+xml">
   
@@ -152,36 +154,103 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Spring优缺点" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
+      <header class="article-header">
+        <!-- 目录内容 -->
+
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+	<div id="toc-article" class="toc-article">
+	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+		<strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring的优点："><span class="toc-number">1.</span> <span class="toc-text">Spring的优点：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#注-："><span class="toc-number">1.0.1.</span> <span class="toc-text">[注]：</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring的缺点："><span class="toc-number">2.</span> <span class="toc-text">Spring的缺点：</span></a></li>
+         </div>
+   <script type="text/javascript">
+	function showToc(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:block");
+		show_toc_btn.setAttribute("style","display:none");
+		};
+	function showBtn(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:none");
+		show_toc_btn.setAttribute("style","display:block");
+		};
+   </script>
       
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/09/Spring优缺点/" class="archive-article-date">
-  	<time datetime="2018-11-09T13:17:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-09</time>
-</a>
-        </div>
-    	 
+<!-- 目录内容结束 -->
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/09/Spring优缺点/">Spring优缺点</a>
+    <h1 class="article-title" itemprop="name">
+      Spring优缺点
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/11/09/Spring优缺点/" class="archive-article-date">
+  	<time datetime="2018-11-09T13:17:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Spring的优点："><a href="#Spring的优点：" class="headerlink" title="Spring的优点："></a>Spring的优点：</h2><ol>
+<li><strong><em>轻量级</em></strong>：完整的Spring框架可以在一个大小只有<strong>1MB多</strong>的JAR文件里发布，而且它的<strong>POJO</strong><sup>[1]</sup>实现不会强制继承任何类或实现任何接口。</li>
+<li><strong><em>扩展性</em></strong>：Spring Framework支持其他框架，它的集成使Spring更容易开发。<a id="more"></a></li>
+<li><strong><em>松耦合</em></strong>：由于<strong>依赖注入</strong>，Spring应用程序松散耦合。</li>
+<li><strong><em>易测试</em></strong>：Spring Framework更容易测试，并且不需要任何服务器来运行应用程序。</li>
+<li><strong><em>功能强</em></strong>：它为JavaEE规范提供了强大的抽象，如<strong>JDBC</strong><sup>[2]</sup>，<strong>JTA</strong><sup>[3]</sup>等。<h4 id="注-："><a href="#注-：" class="headerlink" title="[注]："></a>[注]：</h4><ul>
+<li>[1]POJO：（Plain Ordinary Java Object）简单的Java对象，实际就是普通JavaBeans。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyBean</span></span>&#123;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">private</span> String someProperty;</span><br><span class="line"> </span><br><span class="line"> <span class="function"><span class="keyword">public</span> String <span class="title">getSomeProperty</span><span class="params">()</span></span>&#123;</span><br><span class="line">   <span class="keyword">return</span> someProperty;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSomeProperty</span><span class="params">(String someProperty)</span></span>&#123;</span><br><span class="line">   <span class="keyword">this</span>.someProperty = someProperty;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>[2] JDBC: （Java Database Connectivity，简称JDBC）是Java语言中用来规范客户端程序如何来访问数据库的应用程序接口，提供了诸如查询和更新数据库中数据的方法。</li>
+<li>[3] JTA: （Java Transaction API，简称JTA ） 是一个Java企业版 的应用程序接口，在Java环境中，允许完成跨越多个XA资源的分布式事务。</li>
+</ul>
+</li>
+</ol>
+<h2 id="Spring的缺点："><a href="#Spring的缺点：" class="headerlink" title="Spring的缺点："></a>Spring的缺点：</h2><ol>
+<li><strong><em>学习曲线高</em></strong>：因为大多数开发人员发现它很难理解和应用。</li>
+<li><strong><em>过程耗时</em></strong>： 因为Spring Framework与另一个框架有很多集成，因此很难知道所有可用的选项。</li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixinpay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -205,7 +274,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -222,78 +291,117 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://philshieh.github.io/2018/11/09/Spring优缺点/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/05/Spring原理L1/" class="archive-article-date">
-  	<time datetime="2018-11-05T09:45:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-05</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/11/05/Spring原理L1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spring底层实现原理L1</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/05/Spring原理L1/">Spring底层实现原理L1</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IoC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/框架/" class="article-tag-list-link color3">框架</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/框架/Spring/" class="article-tag-list-link color2">Spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring的优点："><span class="toc-number">1.</span> <span class="toc-text">Spring的优点：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#注-："><span class="toc-number">1.0.1.</span> <span class="toc-text">[注]：</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring的缺点："><span class="toc-number">2.</span> <span class="toc-text">Spring的缺点：</span></a></li>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -321,8 +429,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
