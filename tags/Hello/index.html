@@ -6,22 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://philshieh.github.io">
-  <title>Spring底层实现原理L1 | 谢飞的博客</title>
+  <title>Tag: Hello | 谢飞的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="框架的诞生   重复的代码抽取出来，封装到方法中      ——-》这样的方法过多，将这些方法封装成工具类          ——》工具类形成了规模，就整合成类库              ——-》框架诞生">
-<meta name="keywords" content="Spring,IoC,DI">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Spring底层实现原理L1">
-<meta property="og:url" content="http://philshieh.github.io/2018/11/05/Spring原理L1/index.html">
+  <meta name="description" content="From zero to one">
+<meta property="og:type" content="website">
+<meta property="og:title" content="谢飞的博客">
+<meta property="og:url" content="http://philshieh.github.io/tags/Hello/index.html">
 <meta property="og:site_name" content="谢飞的博客">
-<meta property="og:description" content="框架的诞生   重复的代码抽取出来，封装到方法中      ——-》这样的方法过多，将这些方法封装成工具类          ——》工具类形成了规模，就整合成类库              ——-》框架诞生">
+<meta property="og:description" content="From zero to one">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://philshieh.github.io/2018/11/05/Spring原理L1/Spring.png">
-<meta property="og:updated_time" content="2018-11-09T13:38:01.411Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring底层实现原理L1">
-<meta name="twitter:description" content="框架的诞生   重复的代码抽取出来，封装到方法中      ——-》这样的方法过多，将这些方法封装成工具类          ——》工具类形成了规模，就整合成类库              ——-》框架诞生">
-<meta name="twitter:image" content="http://philshieh.github.io/2018/11/05/Spring原理L1/Spring.png">
+<meta name="twitter:title" content="谢飞的博客">
+<meta name="twitter:description" content="From zero to one">
   
     <link rel="alternative" href="/atom.xml" title="谢飞的博客" type="application/atom+xml">
   
@@ -156,101 +152,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Spring原理L1" class="article article-type-post " itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        <!-- 目录内容 -->
-
-    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
-          <span class="btn-bg"></span>
-          <span class="btn-text">文章导航</span>
-          </p>
-	<div id="toc-article" class="toc-article">
-	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-		<strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#框架的诞生"><span class="toc-number">1.</span> <span class="toc-text">框架的诞生</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#注-："><span class="toc-number">1.0.1.</span> <span class="toc-text">[注]：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#反射"><span class="toc-number">1.0.2.</span> <span class="toc-text">反射</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#IoC是如何做到的呢？"><span class="toc-number">2.</span> <span class="toc-text">IoC是如何做到的呢？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#打个比方："><span class="toc-number">2.0.1.</span> <span class="toc-text">打个比方：</span></a></li></ol></li>
-         </div>
-   <script type="text/javascript">
-	function showToc(){
-		var toc_article = document.getElementById("toc-article");
-		var show_toc_btn = document.getElementById("show-toc-btn");
-		toc_article.setAttribute("style","display:block");
-		show_toc_btn.setAttribute("style","display:none");
-		};
-	function showBtn(){
-		var toc_article = document.getElementById("toc-article");
-		var show_toc_btn = document.getElementById("show-toc-btn");
-		toc_article.setAttribute("style","display:none");
-		show_toc_btn.setAttribute("style","display:block");
-		};
-   </script>
-      
-<!-- 目录内容结束 -->
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Spring底层实现原理L1
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/11/12/Spring原理L2-1/" class="archive-article-date">
+  	<time datetime="2018-11-12T09:25:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-12</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/11/12/Spring原理L2-1/">Spring底层实现原理L2之Hello</a>
     </h1>
   
 
-        
-        <a href="/2018/11/05/Spring原理L1/" class="archive-article-date">
-  	<time datetime="2018-11-05T09:45:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="框架的诞生"><a href="#框架的诞生" class="headerlink" title="框架的诞生"></a>框架的诞生</h2><p>   重复的代码抽取出来，封装到方法中<br>      ——-》这样的方法过多，将这些方法封装成工具类<br>          ——》工具类形成了规模，就整合成类库<br>              ——-》框架诞生<br><a id="more"></a><br>框架就是一个半成品组件，将底层的代码，重复的代码封装，暴露接口给用户使用。<br>让用户只关心业务逻辑功能，并不需要关注底层代码的实现，在一定程度上简化了开发，提高软件开发的效率。<br>来自:<a href="https://www.cnblogs.com/shuai-server/p/9011334.html" target="_blank" rel="noopener">https://www.cnblogs.com/shuai-server/p/9011334.html</a>   </p>
-<p><img src="/2018/11/05/Spring原理L1/Spring.png" alt="Spring">    </p>
-<p>spring解决的是将对象之间的依赖关系交由配置文件统一管理，也就是依赖注入，注入关系在IoC容器中管理。       </p>
-<h4 id="注-："><a href="#注-：" class="headerlink" title="[注]："></a>[注]：</h4><pre><code>* 控制反转（Inversion of Control，缩写为IoC），是面向对象编程中的一种设计原则，可以用来减低计算机代码之间的耦合度。  
-
-* 实现控制反转(IoC)有两种方式：
-* 依赖注入（Dependency Injection，简称DI，最常见）
-* 依赖查找（Dependency Lookup）
-</code></pre><h4 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h4><pre><code>* IoC中最基本的JAVA技术是&quot;反射&quot;编程,
-  通俗的说，反射就是根据给出的类名（字符串）来生成对象。
-  这种编程方式可以让应用在运行时才动态决定生成哪一种对象。
-  反射的应用是很广泛的，像Hibernate、Spring中都是用“反射”做为最基本的技术手段。
-</code></pre><h2 id="IoC是如何做到的呢？"><a href="#IoC是如何做到的呢？" class="headerlink" title="IoC是如何做到的呢？"></a>IoC是如何做到的呢？</h2><h4 id="打个比方："><a href="#打个比方：" class="headerlink" title="打个比方："></a>打个比方：</h4><p>有点像通过婚介找女朋友，在我和女朋友之间引入了一个第三者：婚姻介绍所。婚介管理了很多男男女女的资料，我可以向婚介提出一个列表，告诉它我想找个什么样的女朋友，比如长得像李嘉欣，身材像林熙雷，技术像齐达内之类的，然后婚介就会按照我们的要求，提供一个mm，我们只需要去和她谈恋爱、结婚就行了。简单明了，如果婚介给我们的人选不符合要求，我们就会抛出异常。整个过程不再由我自己控制，而是有婚介这样一个类似容器的机构来控制。<br>所有的类的创建、销毁都由 spring来控制，也就是说控制对象生存周期的不再是引用它的对象，而是spring。对于某个具体的对象而言，以前是它控制其他对象，现在是所有对象都被spring控制，所以这叫控制反转。</p>
-<p>IoC的一个重点是在系统运行中，动态的向某个对象提供它所需要的其他对象。这一点是通过DI（DependencyInjection，依赖注入）来实现的。<br>比如对象A需要操作数据库，以前我们总是要在A中自己编写代码来获得一个Connection对象，有了 spring我们就只需要告诉spring，A中需要一个Connection，至于这个Connection怎么构造，何时构造，A不需要知道。在系统运行时，spring会在适当的时候制造一个Connection，然后像打针一样，注射到A当中，这样就完成了对各个对象之间关系的控制。A需要依赖 Connection才能正常运行，而这个Connection是由spring注入到A中的，依赖注入的名字就这么来的。<br>来自 <a href="https://blog.csdn.net/jiangyu1013/article/details/72654373" target="_blank" rel="noopener">https://blog.csdn.net/jiangyu1013/article/details/72654373</a> </p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/weixinpay.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -260,17 +191,17 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IoC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Hello</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DI</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Eclipse</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -287,121 +218,17 @@
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://philshieh.github.io/2018/11/05/Spring原理L1/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/11/09/Spring的优缺点/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Spring的优点和缺点
-        
-      </div>
-    </a>
   
   
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#框架的诞生"><span class="toc-number">1.</span> <span class="toc-text">框架的诞生</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#注-："><span class="toc-number">1.0.1.</span> <span class="toc-text">[注]：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#反射"><span class="toc-number">1.0.2.</span> <span class="toc-text">反射</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#IoC是如何做到的呢？"><span class="toc-number">2.</span> <span class="toc-text">IoC是如何做到的呢？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#打个比方："><span class="toc-number">2.0.1.</span> <span class="toc-text">打个比方：</span></a></li></ol></li>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -429,9 +256,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
