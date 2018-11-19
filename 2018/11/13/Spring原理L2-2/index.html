@@ -9,7 +9,7 @@
   <title>Spring原理L2之松耦合 | 谢飞的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="松耦合代码编写  上一部分，我们已经创建了 Maven 项目，打印出了 Hello,xiefei 。为了方便，我使用上面的工程， pom.xml 文件一致，不必修改。下面，我们实验证明 Spring 的松耦合。假设项目需要输出到 CSV 或者 JSON 。实验效果如图：">
-<meta name="keywords" content="Spring,Eclips">
+<meta name="keywords" content="Spring,Eclipse">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring原理L2之松耦合">
 <meta property="og:url" content="http://philshieh.github.io/2018/11/13/Spring原理L2-2/index.html">
@@ -23,7 +23,7 @@
 <meta property="og:image" content="http://philshieh.github.io/2018/11/13/Spring原理L2-2/Spring-Output.png">
 <meta property="og:image" content="http://philshieh.github.io/2018/11/13/Spring原理L2-2/json.png">
 <meta property="og:image" content="http://philshieh.github.io/2018/11/13/Spring原理L2-2/csv.png">
-<meta property="og:updated_time" content="2018-11-12T17:59:12.366Z">
+<meta property="og:updated_time" content="2018-11-19T13:45:55.680Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring原理L2之松耦合">
 <meta name="twitter:description" content="松耦合代码编写  上一部分，我们已经创建了 Maven 项目，打印出了 Hello,xiefei 。为了方便，我使用上面的工程， pom.xml 文件一致，不必修改。下面，我们实验证明 Spring 的松耦合。假设项目需要输出到 CSV 或者 JSON 。实验效果如图：">
@@ -271,7 +271,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Eclips</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Eclipse</a>
         		</li>
       		
 		</ul>
@@ -355,6 +355,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2018/11/19/Spring原理L2-3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Spring原理L2之Bean的属性值注入
+        
+      </div>
+    </a>
   
   
     <a href="/2018/11/12/Spring原理L2-1/" id="article-nav-older" class="article-nav-link-wrap">
@@ -507,15 +516,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Eclips</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Hello</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Eclipse</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Bean</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IOC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IoC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DI</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -528,14 +549,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JTA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IoC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DI</a>
               </li>
             
             <div class="clearfix"></div>
