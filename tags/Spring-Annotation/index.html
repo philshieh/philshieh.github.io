@@ -6,25 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://philshieh.github.io">
-  <title>Spring底层实现原理L2之Hello | 谢飞的博客</title>
+  <title>Tag: Spring Annotation | 谢飞的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="环境准备 JDK1.7 Eclipse JavaEE">
-<meta name="keywords" content="Spring,Hello,Eclipse">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Spring底层实现原理L2之Hello">
-<meta property="og:url" content="http://philshieh.github.io/2018/11/12/Spring原理L2-1/index.html">
+  <meta name="description" content="From zero to one">
+<meta property="og:type" content="website">
+<meta property="og:title" content="谢飞的博客">
+<meta property="og:url" content="http://philshieh.github.io/tags/Spring-Annotation/index.html">
 <meta property="og:site_name" content="谢飞的博客">
-<meta property="og:description" content="环境准备 JDK1.7 Eclipse JavaEE">
+<meta property="og:description" content="From zero to one">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://philshieh.github.io/2018/11/12/Spring原理L2-1/NewMavenproject.png">
-<meta property="og:image" content="http://philshieh.github.io/2018/11/12/Spring原理L2-1/NewMavenproject2.png">
-<meta property="og:image" content="http://philshieh.github.io/2018/11/12/Spring原理L2-1/helloworld.png">
-<meta property="og:image" content="http://philshieh.github.io/2018/11/12/Spring原理L2-1/result.png">
-<meta property="og:updated_time" content="2018-11-12T11:12:47.977Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring底层实现原理L2之Hello">
-<meta name="twitter:description" content="环境准备 JDK1.7 Eclipse JavaEE">
-<meta name="twitter:image" content="http://philshieh.github.io/2018/11/12/Spring原理L2-1/NewMavenproject.png">
+<meta name="twitter:title" content="谢飞的博客">
+<meta name="twitter:description" content="From zero to one">
   
     <link rel="alternative" href="/atom.xml" title="谢飞的博客" type="application/atom+xml">
   
@@ -159,131 +152,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Spring原理L2-1" class="article article-type-post " itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        <!-- 目录内容 -->
-
-    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
-          <span class="btn-bg"></span>
-          <span class="btn-text">文章导航</span>
-          </p>
-	<div id="toc-article" class="toc-article">
-	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-		<strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#环境准备"><span class="toc-number">1.</span> <span class="toc-text">环境准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建Maven工程"><span class="toc-number">2.</span> <span class="toc-text">创建Maven工程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#注-："><span class="toc-number">2.0.1.</span> <span class="toc-text">[注]：</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#修改pom-xml"><span class="toc-number">3.</span> <span class="toc-text">修改pom.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建-HelloWorld-java"><span class="toc-number">4.</span> <span class="toc-text">创建 HelloWorld.java</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建-SpringBeans-xml"><span class="toc-number">5.</span> <span class="toc-text">创建 SpringBeans.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建测试App"><span class="toc-number">6.</span> <span class="toc-text">创建测试App</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#App-java作为-java-application-运行，结果如下："><span class="toc-number">7.</span> <span class="toc-text">App.java作为 java application 运行，结果如下：</span></a></li>
-         </div>
-   <script type="text/javascript">
-	function showToc(){
-		var toc_article = document.getElementById("toc-article");
-		var show_toc_btn = document.getElementById("show-toc-btn");
-		toc_article.setAttribute("style","display:block");
-		show_toc_btn.setAttribute("style","display:none");
-		};
-	function showBtn(){
-		var toc_article = document.getElementById("toc-article");
-		var show_toc_btn = document.getElementById("show-toc-btn");
-		toc_article.setAttribute("style","display:none");
-		show_toc_btn.setAttribute("style","display:block");
-		};
-   </script>
-      
-<!-- 目录内容结束 -->
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Spring底层实现原理L2之Hello
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/11/24/Spring原理L2-6extra/" class="archive-article-date">
+  	<time datetime="2018-11-24T13:28:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-24</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/11/24/Spring原理L2-6extra/">Spring原理L2 Extra</a>
     </h1>
   
 
-        
-        <a href="/2018/11/12/Spring原理L2-1/" class="archive-article-date">
-  	<time datetime="2018-11-12T09:25:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ul>
-<li><strong>JDK1.7</strong></li>
-<li><p><strong>Eclipse JavaEE</strong></p>
-<a id="more"></a>  
-<h2 id="创建Maven工程"><a href="#创建Maven工程" class="headerlink" title="创建Maven工程"></a>创建Maven工程</h2><p>打开 eclipse → New Maven project如下图：<br><img src="/2018/11/12/Spring原理L2-1/NewMavenproject.png" alt="New Maven project"></p>
-<p><img src="/2018/11/12/Spring原理L2-1/NewMavenproject2.png" alt="New Maven project"></p>
-</li>
-</ul>
-<h4 id="注-："><a href="#注-：" class="headerlink" title="[注]："></a>[注]：</h4><ul>
-<li>Group Id：项目的组织机构，也是包的目录结构，一般都是域名的倒序，比如 org.Apache.Maven</li>
-<li>Atifact Id ：项目实际的名字，比如 spring</li>
-</ul>
-<h2 id="修改pom-xml"><a href="#修改pom-xml" class="headerlink" title="修改pom.xml"></a>修改pom.xml</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>cn.xiefei<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>spring3-Example<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.apache.org<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.build.sourceEncoding</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.8.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- Spring3 deploy --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.0.9.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-context<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.0.9.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="创建-HelloWorld-java"><a href="#创建-HelloWorld-java" class="headerlink" title="创建 HelloWorld.java"></a>创建 HelloWorld.java</h2><p>接下来，我们在项目名上右键再创建一个 Spring bean，首先创建一个包，包名为 <strong>cn.xiefei.helloworld</strong> :</p>
-<p>  <img src="/2018/11/12/Spring原理L2-1/helloworld.png" alt="New Maven project"></p>
-<p>再在该包内创建一个类，类名为 <strong>HelloWorld</strong>:  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.xiefei.helloworld;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printHello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"The First Spring:	hello,"</span>+name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="创建-SpringBeans-xml"><a href="#创建-SpringBeans-xml" class="headerlink" title="创建 SpringBeans.xml"></a>创建 SpringBeans.xml</h2><p>  创建文件 SpringBeans.xml ，配置 bean 如下。文件位于 src/main/resources 下。<br>编辑 SpringBeans.xml 文件如下：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans</span></span></span><br><span class="line"><span class="tag"><span class="string">    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"helloBean"</span> <span class="attr">class</span>=<span class="string">"cn.xiefei.helloworld.HelloWorld"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"xiefei"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="创建测试App"><a href="#创建测试App" class="headerlink" title="创建测试App"></a>创建测试App</h2><p>  在 cn.xiefei.spring 包下创建一个类，类名为 App:</p>
-<pre><code class="java"><span class="keyword">package</span> cn.xiefei.spring;
-
-<span class="keyword">import</span> org.springframework.context.ApplicationContext;
-<span class="keyword">import</span> org.springframework.context.support.ClassPathXmlApplicationContext;
-<span class="keyword">import</span> cn.xiefei.helloworld.HelloWorld;
-
-
-<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> </span>
-<span class="class"></span>{
-    <span class="keyword">private</span> <span class="keyword">static</span> ApplicationContext context;
-
-    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">( String[] args )</span></span>
-<span class="function">    </span>{
-        <span class="comment">// ClassPathXmlApplicationContext 是读取 src 目录下的配置文件</span>
-        context = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"SpringBeans"</span>);
-        <span class="comment">// 根据bean的ID返回一个通用对象并转换成HelloWorld对象</span>
-        HelloWorld obj = (HelloWorld) context.getBean(<span class="string">"helloBean"</span>);
-        <span class="comment">// 调用printHello方法</span>
-        obj.printHello();
-    }
-}
-</code></pre>
-<h2 id="App-java作为-java-application-运行，结果如下："><a href="#App-java作为-java-application-运行，结果如下：" class="headerlink" title="App.java作为 java application 运行，结果如下："></a>App.java作为 java application 运行，结果如下：</h2><p><img src="/2018/11/12/Spring原理L2-1/result.png" alt="App.java运行结果"></p>
-<p>参考链接:<a href="https://www.shiyanlou.com/courses/578/labs/1923/document" target="_blank" rel="noopener">https://www.shiyanlou.com/courses/578/labs/1923/document</a>   </p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/weixinpay.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -293,17 +191,21 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Hello</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IoC</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Eclipse</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Extra</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Spring Annotation</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -320,126 +222,17 @@
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://philshieh.github.io/2018/11/12/Spring原理L2-1/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/11/13/Spring原理L2-2/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Spring原理L2之松耦合
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/11/09/Spring的优缺点/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Spring的优点和缺点</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#环境准备"><span class="toc-number">1.</span> <span class="toc-text">环境准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建Maven工程"><span class="toc-number">2.</span> <span class="toc-text">创建Maven工程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#注-："><span class="toc-number">2.0.1.</span> <span class="toc-text">[注]：</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#修改pom-xml"><span class="toc-number">3.</span> <span class="toc-text">修改pom.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建-HelloWorld-java"><span class="toc-number">4.</span> <span class="toc-text">创建 HelloWorld.java</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建-SpringBeans-xml"><span class="toc-number">5.</span> <span class="toc-text">创建 SpringBeans.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建测试App"><span class="toc-number">6.</span> <span class="toc-text">创建测试App</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#App-java作为-java-application-运行，结果如下："><span class="toc-number">7.</span> <span class="toc-text">App.java作为 java application 运行，结果如下：</span></a></li>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -467,9 +260,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
