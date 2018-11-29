@@ -6,12 +6,12 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://philshieh.github.io">
-  <title>Spring原理L2之松耦合 | 谢飞的博客</title>
+  <title>Spring底层实现原理L2之松耦合 | 谢飞的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="松耦合代码编写  上一部分，我们已经创建了 Maven 项目，打印出了 Hello,xiefei 。为了方便，我使用上面的工程， pom.xml 文件一致，不必修改。下面，我们实验证明 Spring 的松耦合。假设项目需要输出到 CSV 或者 JSON 。实验效果如图：">
 <meta name="keywords" content="Spring,Eclipse">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring原理L2之松耦合">
+<meta property="og:title" content="Spring底层实现原理L2之松耦合">
 <meta property="og:url" content="http://philshieh.github.io/2018/11/13/Spring原理L2-2/index.html">
 <meta property="og:site_name" content="谢飞的博客">
 <meta property="og:description" content="松耦合代码编写  上一部分，我们已经创建了 Maven 项目，打印出了 Hello,xiefei 。为了方便，我使用上面的工程， pom.xml 文件一致，不必修改。下面，我们实验证明 Spring 的松耦合。假设项目需要输出到 CSV 或者 JSON 。实验效果如图：">
@@ -23,9 +23,9 @@
 <meta property="og:image" content="http://philshieh.github.io/2018/11/13/Spring原理L2-2/Spring-Output.png">
 <meta property="og:image" content="http://philshieh.github.io/2018/11/13/Spring原理L2-2/json.png">
 <meta property="og:image" content="http://philshieh.github.io/2018/11/13/Spring原理L2-2/csv.png">
-<meta property="og:updated_time" content="2018-11-19T13:45:55.680Z">
+<meta property="og:updated_time" content="2018-11-29T10:04:12.981Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring原理L2之松耦合">
+<meta name="twitter:title" content="Spring底层实现原理L2之松耦合">
 <meta name="twitter:description" content="松耦合代码编写  上一部分，我们已经创建了 Maven 项目，打印出了 Hello,xiefei 。为了方便，我使用上面的工程， pom.xml 文件一致，不必修改。下面，我们实验证明 Spring 的松耦合。假设项目需要输出到 CSV 或者 JSON 。实验效果如图：">
 <meta name="twitter:image" content="http://philshieh.github.io/2018/11/13/Spring原理L2-2/csv.png">
   
@@ -196,7 +196,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Spring原理L2之松耦合
+      Spring底层实现原理L2之松耦合
     </h1>
   
 
@@ -360,7 +360,7 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Spring原理L2之Bean的属性值注入
+          Spring底层实现原理L2之Bean的属性值注入
         
       </div>
     </a>
@@ -532,11 +532,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Bean</a>
+                <a href="javascript:void(0)" class="js-tag color4">IOC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IOC</a>
+                <a href="javascript:void(0)" class="js-tag color5">Bean</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -544,7 +544,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Component</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Extra</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">autowire</a>
               </li>
              
               <li class="article-tag-list-item">

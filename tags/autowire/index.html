@@ -6,20 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://philshieh.github.io">
-  <title>Spring底层实现原理L2 Extra | 谢飞的博客</title>
+  <title>Tag: autowire | 谢飞的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Spring 注解的配置注解是为 Spring 容器提供 Bean 定义的信息，把 XML 定义的信息通过类注解描述出来。">
-<meta name="keywords" content="Spring,IoC,Extra,Spring Annotation">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Spring底层实现原理L2 Extra">
-<meta property="og:url" content="http://philshieh.github.io/2018/11/24/Spring原理L2-6extra/index.html">
+  <meta name="description" content="From zero to one">
+<meta property="og:type" content="website">
+<meta property="og:title" content="谢飞的博客">
+<meta property="og:url" content="http://philshieh.github.io/tags/autowire/index.html">
 <meta property="og:site_name" content="谢飞的博客">
-<meta property="og:description" content="Spring 注解的配置注解是为 Spring 容器提供 Bean 定义的信息，把 XML 定义的信息通过类注解描述出来。">
+<meta property="og:description" content="From zero to one">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-29T10:56:31.627Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring底层实现原理L2 Extra">
-<meta name="twitter:description" content="Spring 注解的配置注解是为 Spring 容器提供 Bean 定义的信息，把 XML 定义的信息通过类注解描述出来。">
+<meta name="twitter:title" content="谢飞的博客">
+<meta name="twitter:description" content="From zero to one">
   
     <link rel="alternative" href="/atom.xml" title="谢飞的博客" type="application/atom+xml">
   
@@ -154,79 +152,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Spring原理L2-6extra" class="article article-type-post " itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Spring底层实现原理L2 Extra
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/11/29/Spring原理L3-3/" class="archive-article-date">
+  	<time datetime="2018-11-29T13:46:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-29</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/11/29/Spring原理L3-3/">Spring底层实现原理之自动装配Bean</a>
     </h1>
   
 
-        
-        <a href="/2018/11/24/Spring原理L2-6extra/" class="archive-article-date">
-  	<time datetime="2018-11-24T13:28:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Spring-注解的配置"><a href="#Spring-注解的配置" class="headerlink" title="Spring 注解的配置"></a>Spring 注解的配置</h2><p>注解是为 Spring 容器提供 Bean 定义的信息，把 XML 定义的信息通过类注解描述出来。<br><a id="more"></a><br><strong>众所周知，Spring容器三大要素：</strong></p>
-<ul>
-<li>Bean 定义</li>
-<li>Bean 实现类</li>
-<li>Spring 框架<br>以下简单列举几个注解方式：</li>
-</ul>
-<ol>
-<li>@Component<br>被此注解标注的类将被 Spring 容器自动识别，自动生成 Bean 定义。即：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">packeage cn.xiefe.spring;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(<span class="string">"People"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">People</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-与在XML中配置以下效果相同<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"People"</span> <span class="attr">class</span>=<span class="string">"cn.xiefe.spring.People"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-除此之外，Spring 有三个与 @Component 等效的注解：</li>
-</ol>
-<p>@Controller:对应控制层的 Bean，也就是 Action 。<br>@Service:对应的是业务层 Bean 。<br>@Repository:对应数据访问层 Bean 。</p>
-<ol start="2">
-<li>@Autowired<br>@Autowired 可以用来装配 bean，都可以写在字段上，或者方法上。使用 @Autowired，首先要在在 applicationContext.xml 中加入<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-@Autowired 默认按类型装配，默认情况下必须要求依赖对象必须存在，如果要允许 null 值，可以设置它的 required 属性为 false 。</li>
-</ol>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/weixinpay.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -236,21 +191,21 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IoC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Eclipse</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Extra</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Bean</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Spring Annotation</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">autowire</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -267,113 +222,17 @@
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://philshieh.github.io/2018/11/24/Spring原理L2-6extra/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/11/29/Spring原理L3/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Spring底层实现原理L3之AutomaticScanComponent
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/11/24/Spring原理L2-6/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Spring底层实现原理L2之Collections</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -401,9 +260,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,

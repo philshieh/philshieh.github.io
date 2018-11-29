@@ -6,20 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://philshieh.github.io">
-  <title>Spring底层实现原理L2 Extra | 谢飞的博客</title>
+  <title>Spring底层实现原理之自动装配Bean | 谢飞的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Spring 注解的配置注解是为 Spring 容器提供 Bean 定义的信息，把 XML 定义的信息通过类注解描述出来。">
-<meta name="keywords" content="Spring,IoC,Extra,Spring Annotation">
+  <meta name="description" content="自动装配 Bean所谓自动装配，就是将一个 Bean 注入到其他 Bean 的 Property 中，类似于以下：   Spring 支持 5 种自动装配模式，如下：">
+<meta name="keywords" content="Spring,Eclipse,Bean,autowire">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring底层实现原理L2 Extra">
-<meta property="og:url" content="http://philshieh.github.io/2018/11/24/Spring原理L2-6extra/index.html">
+<meta property="og:title" content="Spring底层实现原理之自动装配Bean">
+<meta property="og:url" content="http://philshieh.github.io/2018/11/29/Spring原理L3-3/index.html">
 <meta property="og:site_name" content="谢飞的博客">
-<meta property="og:description" content="Spring 注解的配置注解是为 Spring 容器提供 Bean 定义的信息，把 XML 定义的信息通过类注解描述出来。">
+<meta property="og:description" content="自动装配 Bean所谓自动装配，就是将一个 Bean 注入到其他 Bean 的 Property 中，类似于以下：   Spring 支持 5 种自动装配模式，如下：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-29T10:56:31.627Z">
+<meta property="og:image" content="http://philshieh.github.io/2018/11/29/Spring原理L3-3/1.png">
+<meta property="og:image" content="http://philshieh.github.io/2018/11/29/Spring原理L3-3/2.png">
+<meta property="og:image" content="http://philshieh.github.io/2018/11/29/Spring原理L3-3/2-1.png">
+<meta property="og:image" content="http://philshieh.github.io/2018/11/29/Spring原理L3-3/3.png">
+<meta property="og:image" content="http://philshieh.github.io/2018/11/29/Spring原理L3-3/4.png">
+<meta property="og:updated_time" content="2018-11-29T14:11:30.847Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring底层实现原理L2 Extra">
-<meta name="twitter:description" content="Spring 注解的配置注解是为 Spring 容器提供 Bean 定义的信息，把 XML 定义的信息通过类注解描述出来。">
+<meta name="twitter:title" content="Spring底层实现原理之自动装配Bean">
+<meta name="twitter:description" content="自动装配 Bean所谓自动装配，就是将一个 Bean 注入到其他 Bean 的 Property 中，类似于以下：   Spring 支持 5 种自动装配模式，如下：">
+<meta name="twitter:image" content="http://philshieh.github.io/2018/11/29/Spring原理L3-3/1.png">
   
     <link rel="alternative" href="/atom.xml" title="谢飞的博客" type="application/atom+xml">
   
@@ -154,46 +160,73 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Spring原理L2-6extra" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-Spring原理L3-3" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         <!-- 目录内容 -->
 
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+	<div id="toc-article" class="toc-article">
+	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+		<strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#自动装配-Bean"><span class="toc-number">1.</span> <span class="toc-text">自动装配 Bean</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#no"><span class="toc-number">1.0.1.</span> <span class="toc-text">no</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#byName"><span class="toc-number">1.0.2.</span> <span class="toc-text">byName</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#byType"><span class="toc-number">1.0.3.</span> <span class="toc-text">byType</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#constructor-NaN"><span class="toc-number">1.0.4.</span> <span class="toc-text">constructor</span></a></li></ol></li></ol>
+         </div>
+   <script type="text/javascript">
+	function showToc(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:block");
+		show_toc_btn.setAttribute("style","display:none");
+		};
+	function showBtn(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:none");
+		show_toc_btn.setAttribute("style","display:block");
+		};
+   </script>
+      
 <!-- 目录内容结束 -->
         
   
     <h1 class="article-title" itemprop="name">
-      Spring底层实现原理L2 Extra
+      Spring底层实现原理之自动装配Bean
     </h1>
   
 
         
-        <a href="/2018/11/24/Spring原理L2-6extra/" class="archive-article-date">
-  	<time datetime="2018-11-24T13:28:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-24</time>
+        <a href="/2018/11/29/Spring原理L3-3/" class="archive-article-date">
+  	<time datetime="2018-11-29T13:46:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Spring-注解的配置"><a href="#Spring-注解的配置" class="headerlink" title="Spring 注解的配置"></a>Spring 注解的配置</h2><p>注解是为 Spring 容器提供 Bean 定义的信息，把 XML 定义的信息通过类注解描述出来。<br><a id="more"></a><br><strong>众所周知，Spring容器三大要素：</strong></p>
-<ul>
-<li>Bean 定义</li>
-<li>Bean 实现类</li>
-<li>Spring 框架<br>以下简单列举几个注解方式：</li>
-</ul>
-<ol>
-<li>@Component<br>被此注解标注的类将被 Spring 容器自动识别，自动生成 Bean 定义。即：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">packeage cn.xiefe.spring;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(<span class="string">"People"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">People</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-与在XML中配置以下效果相同<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"People"</span> <span class="attr">class</span>=<span class="string">"cn.xiefe.spring.People"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-除此之外，Spring 有三个与 @Component 等效的注解：</li>
-</ol>
-<p>@Controller:对应控制层的 Bean，也就是 Action 。<br>@Service:对应的是业务层 Bean 。<br>@Repository:对应数据访问层 Bean 。</p>
-<ol start="2">
-<li>@Autowired<br>@Autowired 可以用来装配 bean，都可以写在字段上，或者方法上。使用 @Autowired，首先要在在 applicationContext.xml 中加入<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-@Autowired 默认按类型装配，默认情况下必须要求依赖对象必须存在，如果要允许 null 值，可以设置它的 required 属性为 false 。</li>
-</ol>
+        <h2 id="自动装配-Bean"><a href="#自动装配-Bean" class="headerlink" title="自动装配 Bean"></a>自动装配 Bean</h2><p>所谓自动装配，就是将一个 Bean 注入到其他 Bean 的 Property 中，类似于以下：</p>
+<bean id="customer" class="com.shiyanlou.spring.autowire.common.Customer" autowire="这里写装配模式">
 
+<p>Spring 支持 5 种自动装配模式，如下：<br><a id="more"></a></p>
+<ol>
+<li>no</li>
+<li>byName</li>
+<li>byType</li>
+<li>constructor</li>
+<li>autodetect (在Spring3.0中去掉了,需要测试可使用2.5)</li>
+</ol>
+<p><strong>以下测试均在Spring底层实现原理L3之AutomaticScanComponent项目中的手动配置之上修改进行</strong></p>
+<h4 id="no"><a href="#no" class="headerlink" title="no"></a>no</h4><p>修改配置文件：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--默认情况 通过 ref 手动设定 autowire可以省略不写--&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"customerService"</span> <span class="attr">class</span>=<span class="string">"cn.xiefei.spring.services.CustomerService"</span>  <span class="attr">autowire</span>=<span class="string">"no"</span>&gt;</span></span><br><span class="line">    		 <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"customerDAO"</span> <span class="attr">ref</span>=<span class="string">"customerDAO"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"customerDAO"</span> <span class="attr">class</span>=<span class="string">"cn.xiefei.spring.dao.CustomerDAO"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure><br><strong>测试结果：</strong><br><img src="/2018/11/29/Spring原理L3-3/1.png" alt="1"> </p>
+<h4 id="byName"><a href="#byName" class="headerlink" title="byName"></a>byName</h4><p>修改配置文件：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 根据 Property 的 Name 自动装配 autowire="byName" --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"customerService"</span> <span class="attr">class</span>=<span class="string">"cn.xiefei.spring.services.CustomerService"</span>  <span class="attr">autowire</span>=<span class="string">"byName"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"customerDAO"</span> <span class="attr">class</span>=<span class="string">"cn.xiefei.spring.dao.CustomerDAO"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure><br><strong>测试结果：</strong><br><img src="/2018/11/29/Spring原理L3-3/2.png" alt="2"><br><strong>如果没有找到：</strong><br><img src="/2018/11/29/Spring原理L3-3/2-1.png" alt="2-1"> </p>
+<h4 id="byType"><a href="#byType" class="headerlink" title="byType"></a>byType</h4><p>修改配置文件：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">      <span class="comment">&lt;!-- 根据 Property 的数据类型（ Type ）自动装配  autowire="byType"--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"customerService"</span> <span class="attr">class</span>=<span class="string">"cn.xiefei.spring.services.CustomerService"</span>  <span class="attr">autowire</span>=<span class="string">"byType"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"customerDAO"</span> <span class="attr">class</span>=<span class="string">"cn.xiefei.spring.dao.CustomerDAO"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure><br><strong>测试结果：</strong><br><img src="/2018/11/29/Spring原理L3-3/3.png" alt="3"><br>如果配置文件中有相同类型的bean：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"customerDAO"</span> <span class="attr">class</span>=<span class="string">"cn.xiefei.spring.dao.CustomerDAO"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"customerDao"</span> <span class="attr">class</span>=<span class="string">"cn.xiefei.spring.dao.CustomerDAO"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure><br><strong>抛出异常：</strong></p>
+<ul>
+<li>org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name ‘customerService’ defined in class path resource [SpringCustomer.xml]: Unsatisfied dependency expressed through bean property ‘customerDAO’: : No qualifying bean of type [cn.xiefei.spring.dao.CustomerDAO] is defined: expected single matching bean but found 2: customerDAO,customerDao<br><strong>所以，选择byType类型的自动装配，必须确保配置文件中每个数据类型定义一个唯一的 bean。</strong></li>
+</ul>
+<h4 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h4><p>修改配置文件：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 根据构造函数参数的数据类型，进行 byType 模式的自动装配。 autowire="constructor" --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"customerService"</span> <span class="attr">class</span>=<span class="string">"cn.xiefei.spring.services.CustomerService"</span>  <span class="attr">autowire</span>=<span class="string">"constructor"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"customerDAO"</span> <span class="attr">class</span>=<span class="string">"cn.xiefei.spring.dao.CustomerDAO"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure><br>CustomerService.java中加入构造方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">CustomerService</span><span class="params">(CustomerDAO customerDAO)</span> </span>&#123;</span><br><span class="line">	setCustomerDAO(customerDAO);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">CustomerService</span><span class="params">()</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure><br><strong>测试结果：</strong><br><img src="/2018/11/29/Spring原理L3-3/4.png" alt="4"> </p>
+</bean>
       
 
       
@@ -236,15 +269,15 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IoC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Eclipse</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Extra</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Bean</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Spring Annotation</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">autowire</a>
         		</li>
       		
 		</ul>
@@ -315,7 +348,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://philshieh.github.io/2018/11/24/Spring原理L2-6extra/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://philshieh.github.io/2018/11/29/Spring原理L3-3/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -329,18 +362,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/11/29/Spring原理L3/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Spring底层实现原理L3之AutomaticScanComponent
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/11/24/Spring原理L2-6/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Spring底层实现原理L2之Collections</div>
+    <a href="/2018/11/29/Spring原理L3-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spring底层实现原理L3之AutomaticScanComponent-Extra</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -359,6 +383,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#自动装配-Bean"><span class="toc-number">1.</span> <span class="toc-text">自动装配 Bean</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#no"><span class="toc-number">1.0.1.</span> <span class="toc-text">no</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#byName"><span class="toc-number">1.0.2.</span> <span class="toc-text">byName</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#byType"><span class="toc-number">1.0.3.</span> <span class="toc-text">byType</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#constructor-NaN"><span class="toc-number">1.0.4.</span> <span class="toc-text">constructor</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>

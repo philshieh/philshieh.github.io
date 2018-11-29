@@ -6,20 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://philshieh.github.io">
-  <title>Spring底层实现原理L2 Extra | 谢飞的博客</title>
+  <title>Spring底层实现原理L3之AutomaticScanComponent-Extra | 谢飞的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Spring 注解的配置注解是为 Spring 容器提供 Bean 定义的信息，把 XML 定义的信息通过类注解描述出来。">
-<meta name="keywords" content="Spring,IoC,Extra,Spring Annotation">
+  <meta name="description" content="自定义扫描组件名称创建自定义的组件名称，例如：">
+<meta name="keywords" content="Spring,Component,Extra">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring底层实现原理L2 Extra">
-<meta property="og:url" content="http://philshieh.github.io/2018/11/24/Spring原理L2-6extra/index.html">
+<meta property="og:title" content="Spring底层实现原理L3之AutomaticScanComponent-Extra">
+<meta property="og:url" content="http://philshieh.github.io/2018/11/29/Spring原理L3-2/index.html">
 <meta property="og:site_name" content="谢飞的博客">
-<meta property="og:description" content="Spring 注解的配置注解是为 Spring 容器提供 Bean 定义的信息，把 XML 定义的信息通过类注解描述出来。">
+<meta property="og:description" content="自定义扫描组件名称创建自定义的组件名称，例如：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-29T10:56:31.627Z">
+<meta property="og:image" content="http://philshieh.github.io/2018/11/29/Spring原理L3-2/result1.png">
+<meta property="og:image" content="http://philshieh.github.io/2018/11/29/Spring原理L3-2/result2.png">
+<meta property="og:updated_time" content="2018-11-29T12:19:44.093Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring底层实现原理L2 Extra">
-<meta name="twitter:description" content="Spring 注解的配置注解是为 Spring 容器提供 Bean 定义的信息，把 XML 定义的信息通过类注解描述出来。">
+<meta name="twitter:title" content="Spring底层实现原理L3之AutomaticScanComponent-Extra">
+<meta name="twitter:description" content="自定义扫描组件名称创建自定义的组件名称，例如：">
+<meta name="twitter:image" content="http://philshieh.github.io/2018/11/29/Spring原理L3-2/result1.png">
   
     <link rel="alternative" href="/atom.xml" title="谢飞的博客" type="application/atom+xml">
   
@@ -154,45 +157,66 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Spring原理L2-6extra" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-Spring原理L3-2" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         <!-- 目录内容 -->
 
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+	<div id="toc-article" class="toc-article">
+	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+		<strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义扫描组件名称"><span class="toc-number">1.</span> <span class="toc-text">自定义扫描组件名称</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自动扫描组件的注释类型"><span class="toc-number">2.</span> <span class="toc-text">自动扫描组件的注释类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自动扫描中过滤组件"><span class="toc-number">3.</span> <span class="toc-text">自动扫描中过滤组件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Filter-Component-include"><span class="toc-number">3.0.1.</span> <span class="toc-text">Filter Component - include</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Filter-Component——exclude"><span class="toc-number">3.0.2.</span> <span class="toc-text">Filter Component——exclude</span></a></li></ol></li></ol>
+         </div>
+   <script type="text/javascript">
+	function showToc(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:block");
+		show_toc_btn.setAttribute("style","display:none");
+		};
+	function showBtn(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:none");
+		show_toc_btn.setAttribute("style","display:block");
+		};
+   </script>
+      
 <!-- 目录内容结束 -->
         
   
     <h1 class="article-title" itemprop="name">
-      Spring底层实现原理L2 Extra
+      Spring底层实现原理L3之AutomaticScanComponent-Extra
     </h1>
   
 
         
-        <a href="/2018/11/24/Spring原理L2-6extra/" class="archive-article-date">
-  	<time datetime="2018-11-24T13:28:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-24</time>
+        <a href="/2018/11/29/Spring原理L3-2/" class="archive-article-date">
+  	<time datetime="2018-11-29T09:57:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Spring-注解的配置"><a href="#Spring-注解的配置" class="headerlink" title="Spring 注解的配置"></a>Spring 注解的配置</h2><p>注解是为 Spring 容器提供 Bean 定义的信息，把 XML 定义的信息通过类注解描述出来。<br><a id="more"></a><br><strong>众所周知，Spring容器三大要素：</strong></p>
-<ul>
-<li>Bean 定义</li>
-<li>Bean 实现类</li>
-<li>Spring 框架<br>以下简单列举几个注解方式：</li>
-</ul>
-<ol>
-<li>@Component<br>被此注解标注的类将被 Spring 容器自动识别，自动生成 Bean 定义。即：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">packeage cn.xiefe.spring;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(<span class="string">"People"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">People</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-与在XML中配置以下效果相同<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"People"</span> <span class="attr">class</span>=<span class="string">"cn.xiefe.spring.People"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-除此之外，Spring 有三个与 @Component 等效的注解：</li>
+        <h2 id="自定义扫描组件名称"><a href="#自定义扫描组件名称" class="headerlink" title="自定义扫描组件名称"></a>自定义扫描组件名称</h2><p>创建自定义的组件名称，例如：<br><a id="more"></a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span>(<span class="string">"AAA"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomerService</span> </span></span><br><span class="line"><span class="class">...</span></span><br></pre></td></tr></table></figure><br>于是调用自己定义的组件，如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CustomerService cust = (CustomerService)context.getBean(<span class="string">"AAA"</span>);</span><br></pre></td></tr></table></figure></p>
+<h2 id="自动扫描组件的注释类型"><a href="#自动扫描组件的注释类型" class="headerlink" title="自动扫描组件的注释类型"></a>自动扫描组件的注释类型</h2><ol>
+<li>@Component ——表示一个自动扫描 component</li>
+<li>@Repository ——表示持久化层的 DAO component</li>
+<li>@Service ——表示业务逻辑层的 Service component</li>
+<li>@Controller ——表示表示层的 Controller component<br>在项目中，我们可以将所有自动扫描组件都用 @Component 注释，Spring 将会扫描所有用 @Component 注释过得组件。 实际上，@Repository 、 @Service 、 @Controller 三种注释是为了加强代码的阅读性而创造的。</li>
 </ol>
-<p>@Controller:对应控制层的 Bean，也就是 Action 。<br>@Service:对应的是业务层 Bean 。<br>@Repository:对应数据访问层 Bean 。</p>
-<ol start="2">
-<li>@Autowired<br>@Autowired 可以用来装配 bean，都可以写在字段上，或者方法上。使用 @Autowired，首先要在在 applicationContext.xml 中加入<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-@Autowired 默认按类型装配，默认情况下必须要求依赖对象必须存在，如果要允许 null 值，可以设置它的 required 属性为 false 。</li>
-</ol>
+<h2 id="自动扫描中过滤组件"><a href="#自动扫描中过滤组件" class="headerlink" title="自动扫描中过滤组件"></a>自动扫描中过滤组件</h2><h4 id="Filter-Component-include"><a href="#Filter-Component-include" class="headerlink" title="Filter Component - include"></a>Filter Component - include</h4><p>用“ filter ”自动扫描注册组件，这些组件只要匹配定义的“ regex ”的命名规则，Class 前就不需要用 @Component 进行注释。</p>
+<p><strong>(使用上个项目)创建SpringFiltering.xml 配置如下：</strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xsi:schemaLocation</span>=<span class="string">"</span></span></span><br><span class="line"><span class="tag"><span class="string">            http://www.springframework.org/schema/context</span></span></span><br><span class="line"><span class="tag"><span class="string">            http://www.springframework.org/schema/context/spring-context.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">            http://www.springframework.org/schema/beans </span></span></span><br><span class="line"><span class="tag"><span class="string">            http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span></span><br><span class="line">     <span class="comment">&lt;!-- 自动扫描配置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"cn.xiefei.spring"</span>&gt;</span></span><br><span class="line">    	<span class="comment">&lt;!-- 扫描cn.xiefei.spring.dao包下 任意类名开头DAO结尾的任意方法 注册到Spring容器中 --&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">context:include-filter</span> <span class="attr">type</span>=<span class="string">"regex"</span> <span class="attr">expression</span>=<span class="string">"cn.xiefei.spring.dao.*DAO.*"</span>/&gt;</span></span><br><span class="line">    	<span class="comment">&lt;!-- 扫描cn.xiefei.spring.services包下 任意类名开头Service结尾的任意方法 注册到Spring容器中 --&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">context:include-filter</span> <span class="attr">type</span>=<span class="string">"regex"</span> <span class="attr">expression</span>=<span class="string">"cn.xiefei.spring.services.*Service.*"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>修改App.java</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.xiefei.spring.SpringAuto;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.context.ApplicationContext;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.support.ClassPathXmlApplicationContext;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.xiefei.spring.services.CustomerService;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">( String[] args )</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        ApplicationContext context = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"SpringFiltering.xml"</span>);</span><br><span class="line">        <span class="comment">//自动扫描 默认情况：Spring 将把组件 Class 的第一个字母变成小写</span></span><br><span class="line">        <span class="comment">//因此可以用 customerService 这个名字调用组件，如下：</span></span><br><span class="line">        CustomerService customerService = (CustomerService)context.getBean(<span class="string">"customerService"</span>);</span><br><span class="line">        System.out.println(customerService);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p><strong>结果与之前相同:</strong><br><img src="/2018/11/29/Spring原理L3-2/result1.png" alt="result1"></p>
+<h4 id="Filter-Component——exclude"><a href="#Filter-Component——exclude" class="headerlink" title="Filter Component——exclude"></a>Filter Component——exclude</h4><p>也可以用 exclude ，制定组件避免被 Spring 发现并被注册到容器中。以下配置排除用 @Service 注释过的组件：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"cn.xiefei.spring"</span> &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">context:exclude-filter</span> <span class="attr">type</span>=<span class="string">"regex"</span> </span></span><br><span class="line"><span class="tag">            <span class="attr">expression</span>=<span class="string">"cn.xiefei.dao.*DAO.*"</span> /&gt;</span>        </span><br><span class="line"><span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>再次运行，成功排除:</strong><br><img src="/2018/11/29/Spring原理L3-2/result2.png" alt="result2"></p>
 
       
 
@@ -236,15 +260,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IoC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Component</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Extra</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Spring Annotation</a>
         		</li>
       		
 		</ul>
@@ -315,7 +335,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://philshieh.github.io/2018/11/24/Spring原理L2-6extra/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://philshieh.github.io/2018/11/29/Spring原理L3-2/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -329,18 +349,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/11/29/Spring原理L3/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/11/29/Spring原理L3-3/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Spring底层实现原理L3之AutomaticScanComponent
+          Spring底层实现原理之自动装配Bean
         
       </div>
     </a>
   
   
-    <a href="/2018/11/24/Spring原理L2-6/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Spring底层实现原理L2之Collections</div>
+    <a href="/2018/11/29/Spring原理L3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spring底层实现原理L3之AutomaticScanComponent</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -359,6 +379,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义扫描组件名称"><span class="toc-number">1.</span> <span class="toc-text">自定义扫描组件名称</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自动扫描组件的注释类型"><span class="toc-number">2.</span> <span class="toc-text">自动扫描组件的注释类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自动扫描中过滤组件"><span class="toc-number">3.</span> <span class="toc-text">自动扫描中过滤组件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Filter-Component-include"><span class="toc-number">3.0.1.</span> <span class="toc-text">Filter Component - include</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Filter-Component——exclude"><span class="toc-number">3.0.2.</span> <span class="toc-text">Filter Component——exclude</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>

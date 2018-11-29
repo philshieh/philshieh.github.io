@@ -6,12 +6,12 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://philshieh.github.io">
-  <title>Spring原理L2之BeanScopes | 谢飞的博客</title>
+  <title>Spring底层实现原理L2之BeanScopes | 谢飞的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Spring Bean Scopes - Bean 的作用域在 Spring 中，Bean 的作用域决定了从 Spring 容器中返回的 Bean 实例的类型。在 Spring 中，支持以下 5 种类型的作用域：">
-<meta name="keywords" content="Spring,Eclipse,Bean,IOC">
+<meta name="keywords" content="Spring,Eclipse,IOC,Bean">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring原理L2之BeanScopes">
+<meta property="og:title" content="Spring底层实现原理L2之BeanScopes">
 <meta property="og:url" content="http://philshieh.github.io/2018/11/22/Spring原理L2-5/index.html">
 <meta property="og:site_name" content="谢飞的博客">
 <meta property="og:description" content="Spring Bean Scopes - Bean 的作用域在 Spring 中，Bean 的作用域决定了从 Spring 容器中返回的 Bean 实例的类型。在 Spring 中，支持以下 5 种类型的作用域：">
@@ -21,9 +21,9 @@
 <meta property="og:image" content="http://philshieh.github.io/2018/11/22/Spring原理L2-5/原型.png">
 <meta property="og:image" content="http://philshieh.github.io/2018/11/22/Spring原理L2-5/单例csa.png">
 <meta property="og:image" content="http://philshieh.github.io/2018/11/22/Spring原理L2-5/原型csa.png">
-<meta property="og:updated_time" content="2018-11-22T16:30:58.666Z">
+<meta property="og:updated_time" content="2018-11-29T10:04:46.070Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring原理L2之BeanScopes">
+<meta name="twitter:title" content="Spring底层实现原理L2之BeanScopes">
 <meta name="twitter:description" content="Spring Bean Scopes - Bean 的作用域在 Spring 中，Bean 的作用域决定了从 Spring 容器中返回的 Bean 实例的类型。在 Spring 中，支持以下 5 种类型的作用域：">
 <meta name="twitter:image" content="http://philshieh.github.io/2018/11/22/Spring原理L2-5/1.png">
   
@@ -194,7 +194,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Spring原理L2之BeanScopes
+      Spring底层实现原理L2之BeanScopes
     </h1>
   
 
@@ -265,11 +265,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Bean</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IOC</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IOC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Bean</a>
         		</li>
       		
 		</ul>
@@ -358,14 +358,14 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Spring原理L2之Collections
+          Spring底层实现原理L2之Collections
         
       </div>
     </a>
   
   
     <a href="/2018/11/22/Spring原理L2-4/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Spring原理L2之内部嵌套Bean</div>
+      <div class="article-nav-title">Spring底层实现原理L2之内部嵌套Bean</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -530,11 +530,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Bean</a>
+                <a href="javascript:void(0)" class="js-tag color4">IOC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IOC</a>
+                <a href="javascript:void(0)" class="js-tag color5">Bean</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -542,7 +542,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Component</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Extra</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">autowire</a>
               </li>
              
               <li class="article-tag-list-item">

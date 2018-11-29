@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://philshieh.github.io">
-  <title>Spring原理L2之Collections | 谢飞的博客</title>
+  <title>Spring底层实现原理L2之Collections | 谢飞的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Spring Collections - 集合类型的 Bean怎样将值注入集合类型，包含以下四种主要的集合类型：">
-<meta name="keywords" content="Spring,Eclipse,Bean,IOC,Collections">
+<meta name="keywords" content="Spring,Eclipse,IOC,Bean,Collections">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring原理L2之Collections">
+<meta property="og:title" content="Spring底层实现原理L2之Collections">
 <meta property="og:url" content="http://philshieh.github.io/2018/11/24/Spring原理L2-6/index.html">
 <meta property="og:site_name" content="谢飞的博客">
 <meta property="og:description" content="Spring Collections - 集合类型的 Bean怎样将值注入集合类型，包含以下四种主要的集合类型：">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://philshieh.github.io/2018/11/24/Spring原理L2-6/集合.png">
-<meta property="og:updated_time" content="2018-11-24T13:23:11.916Z">
+<meta property="og:updated_time" content="2018-11-29T10:04:56.277Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring原理L2之Collections">
+<meta name="twitter:title" content="Spring底层实现原理L2之Collections">
 <meta name="twitter:description" content="Spring Collections - 集合类型的 Bean怎样将值注入集合类型，包含以下四种主要的集合类型：">
 <meta name="twitter:image" content="http://philshieh.github.io/2018/11/24/Spring原理L2-6/集合.png">
   
@@ -190,7 +190,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Spring原理L2之Collections
+      Spring底层实现原理L2之Collections
     </h1>
   
 
@@ -261,11 +261,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Bean</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IOC</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IOC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Bean</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -358,14 +358,14 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Spring原理L2 Extra
+          Spring底层实现原理L2 Extra
         
       </div>
     </a>
   
   
     <a href="/2018/11/22/Spring原理L2-5/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Spring原理L2之BeanScopes</div>
+      <div class="article-nav-title">Spring底层实现原理L2之BeanScopes</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -530,11 +530,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Bean</a>
+                <a href="javascript:void(0)" class="js-tag color4">IOC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IOC</a>
+                <a href="javascript:void(0)" class="js-tag color5">Bean</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -542,7 +542,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Component</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Extra</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">autowire</a>
               </li>
              
               <li class="article-tag-list-item">

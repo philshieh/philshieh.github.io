@@ -6,12 +6,12 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://philshieh.github.io">
-  <title>Spring原理L2之内部嵌套Bean | 谢飞的博客</title>
+  <title>Spring底层实现原理L2之内部嵌套Bean | 谢飞的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Spring Inner Bean - 内部嵌套的 Bean编写 Person.java和Customer.java  在 Src/main/java 路径下创建包 cn.xiefei.spring.innerBean ，并在包内创建类 Person.java 和Customer.java，内容如下：">
-<meta name="keywords" content="Spring,Eclipse,Bean,IOC">
+<meta name="keywords" content="Spring,Eclipse,IOC,Bean">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring原理L2之内部嵌套Bean">
+<meta property="og:title" content="Spring底层实现原理L2之内部嵌套Bean">
 <meta property="og:url" content="http://philshieh.github.io/2018/11/22/Spring原理L2-4/index.html">
 <meta property="og:site_name" content="谢飞的博客">
 <meta property="og:description" content="Spring Inner Bean - 内部嵌套的 Bean编写 Person.java和Customer.java  在 Src/main/java 路径下创建包 cn.xiefei.spring.innerBean ，并在包内创建类 Person.java 和Customer.java，内容如下：">
@@ -19,9 +19,9 @@
 <meta property="og:image" content="http://philshieh.github.io/2018/11/22/Spring原理L2-4/1.png">
 <meta property="og:image" content="http://philshieh.github.io/2018/11/22/Spring原理L2-4/2.png">
 <meta property="og:image" content="http://philshieh.github.io/2018/11/22/Spring原理L2-4/3.png">
-<meta property="og:updated_time" content="2018-11-22T16:44:22.455Z">
+<meta property="og:updated_time" content="2018-11-29T10:04:35.981Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring原理L2之内部嵌套Bean">
+<meta name="twitter:title" content="Spring底层实现原理L2之内部嵌套Bean">
 <meta name="twitter:description" content="Spring Inner Bean - 内部嵌套的 Bean编写 Person.java和Customer.java  在 Src/main/java 路径下创建包 cn.xiefei.spring.innerBean ，并在包内创建类 Person.java 和Customer.java，内容如下：">
 <meta name="twitter:image" content="http://philshieh.github.io/2018/11/22/Spring原理L2-4/1.png">
   
@@ -192,7 +192,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Spring原理L2之内部嵌套Bean
+      Spring底层实现原理L2之内部嵌套Bean
     </h1>
   
 
@@ -263,11 +263,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Bean</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IOC</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IOC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Bean</a>
         		</li>
       		
 		</ul>
@@ -356,14 +356,14 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Spring原理L2之BeanScopes
+          Spring底层实现原理L2之BeanScopes
         
       </div>
     </a>
   
   
     <a href="/2018/11/19/Spring原理L2-3/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Spring原理L2之Bean的属性值注入</div>
+      <div class="article-nav-title">Spring底层实现原理L2之Bean的属性值注入</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -528,11 +528,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Bean</a>
+                <a href="javascript:void(0)" class="js-tag color4">IOC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IOC</a>
+                <a href="javascript:void(0)" class="js-tag color5">Bean</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -540,7 +540,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Component</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Extra</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">autowire</a>
               </li>
              
               <li class="article-tag-list-item">
