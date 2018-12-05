@@ -6,12 +6,12 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://philshieh.github.io">
-  <title>Spring底层实现原理之自动装配Bean | 谢飞的博客</title>
+  <title>Spring底层实现原理L3之自动装配Bean | 谢飞的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="自动装配 Bean所谓自动装配，就是将一个 Bean 注入到其他 Bean 的 Property 中，类似于以下：   Spring 支持 5 种自动装配模式，如下：">
-<meta name="keywords" content="Spring,Eclipse,Bean,autowire">
+<meta name="keywords" content="Spring,Bean,Eclipse,autowire">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring底层实现原理之自动装配Bean">
+<meta property="og:title" content="Spring底层实现原理L3之自动装配Bean">
 <meta property="og:url" content="http://philshieh.github.io/2018/11/29/Spring原理L3-3/index.html">
 <meta property="og:site_name" content="谢飞的博客">
 <meta property="og:description" content="自动装配 Bean所谓自动装配，就是将一个 Bean 注入到其他 Bean 的 Property 中，类似于以下：   Spring 支持 5 种自动装配模式，如下：">
@@ -21,9 +21,9 @@
 <meta property="og:image" content="http://philshieh.github.io/2018/11/29/Spring原理L3-3/2-1.png">
 <meta property="og:image" content="http://philshieh.github.io/2018/11/29/Spring原理L3-3/3.png">
 <meta property="og:image" content="http://philshieh.github.io/2018/11/29/Spring原理L3-3/4.png">
-<meta property="og:updated_time" content="2018-11-29T14:11:30.847Z">
+<meta property="og:updated_time" content="2018-12-05T13:47:22.927Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring底层实现原理之自动装配Bean">
+<meta name="twitter:title" content="Spring底层实现原理L3之自动装配Bean">
 <meta name="twitter:description" content="自动装配 Bean所谓自动装配，就是将一个 Bean 注入到其他 Bean 的 Property 中，类似于以下：   Spring 支持 5 种自动装配模式，如下：">
 <meta name="twitter:image" content="http://philshieh.github.io/2018/11/29/Spring原理L3-3/1.png">
   
@@ -194,7 +194,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Spring底层实现原理之自动装配Bean
+      Spring底层实现原理L3之自动装配Bean
     </h1>
   
 
@@ -269,11 +269,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Eclipse</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Bean</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Bean</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Eclipse</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -361,6 +361,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2018/12/05/Spring原理L3-4/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Spring底层实现原理L3之Advice
+        
+      </div>
+    </a>
   
   
     <a href="/2018/11/29/Spring原理L3-2/" id="article-nav-older" class="article-nav-link-wrap">
@@ -521,11 +530,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Hello</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Eclipse</a>
+                <a href="javascript:void(0)" class="js-tag color5">Bean</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -533,7 +538,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Bean</a>
+                <a href="javascript:void(0)" class="js-tag color3">Eclipse</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Hello</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Extra</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Spring Annotation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -545,15 +562,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Extra</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">autowire</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Spring Annotation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -566,6 +575,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JTA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">AOP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Advice</a>
               </li>
             
             <div class="clearfix"></div>
