@@ -154,6 +154,117 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Spring原理L3-5" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/05/Spring原理L3-5/">Spring底层实现原理L3之Pointcut &amp; Advisor</a>
+    </h1>
+  
+
+        
+        <a href="/2018/12/05/Spring原理L3-5/" class="archive-article-date">
+  	<time datetime="2018-12-05T14:22:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Spring-AOP-Pointcut-amp-Advisor"><a href="#Spring-AOP-Pointcut-amp-Advisor" class="headerlink" title="Spring AOP - Pointcut &amp; Advisor"></a>Spring AOP - Pointcut &amp; Advisor</h2><ul>
+<li><p>上一个实验中的 Spring AOP Advice 例子里，Class（ CustomerService ）中的全部 method 都被自动的拦截了。</p>
+</li>
+<li><p>但是大多情况下，你只需要一个方法去拦截一两个 method 。这样就引入了 Pointcut （切入点）的概念，它允许你根据 method 的名字去拦截指定的 method 。另外，一个 Pointcut 必须结合一个 Advisor 来使用。</p></li></ul>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Eclipse</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AOP</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Pointcut</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Advisor</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/框架/" class="article-tag-list-link color3">框架</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/框架/Spring/" class="article-tag-list-link color2">Spring</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/12/05/Spring原理L3-5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Spring原理L3-4" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -723,11 +834,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IOC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Bean</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Bean</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IOC</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -831,11 +942,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IOC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Bean</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Bean</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IOC</a>
         		</li>
       		
 		</ul>
@@ -935,11 +1046,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IOC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Bean</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Bean</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IOC</a>
         		</li>
       		
 		</ul>
@@ -1039,11 +1150,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IOC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Bean</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Bean</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IOC</a>
         		</li>
       		
 		</ul>
@@ -1069,102 +1180,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/11/19/Spring原理L2-3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Spring原理L2-2" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/13/Spring原理L2-2/">Spring底层实现原理L2之松耦合</a>
-    </h1>
-  
-
-        
-        <a href="/2018/11/13/Spring原理L2-2/" class="archive-article-date">
-  	<time datetime="2018-11-12T23:07:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="松耦合代码编写"><a href="#松耦合代码编写" class="headerlink" title="松耦合代码编写"></a>松耦合代码编写</h2><p>  上一部分，我们已经创建了 Maven 项目，打印出了 Hello,xiefei 。为了方便，我使用上面的工程， pom.xml 文件一致，不必修改。下面，我们实验证明 Spring 的松耦合。假设项目需要输出到 CSV 或者 JSON 。实验效果如图：<br></p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Eclipse</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/框架/" class="article-tag-list-link color3">框架</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/框架/Spring/" class="article-tag-list-link color2">Spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/11/13/Spring原理L2-2/">展开全文 >></a>
         </p>
       
 
@@ -1301,11 +1316,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Hello</a>
+                <a href="javascript:void(0)" class="js-tag color3">Eclipse</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Eclipse</a>
+                <a href="javascript:void(0)" class="js-tag color1">Hello</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1317,11 +1332,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IOC</a>
+                <a href="javascript:void(0)" class="js-tag color5">Bean</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Bean</a>
+                <a href="javascript:void(0)" class="js-tag color4">IOC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1345,6 +1360,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">AOP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Pointcut</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Advisor</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">POJO</a>
               </li>
              
@@ -1354,10 +1381,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JTA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">AOP</a>
               </li>
              
               <li class="article-tag-list-item">
